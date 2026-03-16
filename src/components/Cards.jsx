@@ -29,10 +29,11 @@ export default function Cards({ score, setScore, highestScore, setHighestScore})
 
     function shuffleCards() {
         setCards(prevCards => {
-        const shuffled = [...prevCards];
-        shuffled.sort(() => Math.random() - 0.5);
-        return shuffled;
-    });
+            const shuffled = [...prevCards]
+            shuffled.sort(() => Math.random() - 0.5)
+
+            return shuffled
+        })
     }
 
     return (
