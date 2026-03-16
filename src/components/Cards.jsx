@@ -27,6 +27,14 @@ export default function Cards({ score, setScore, highestScore, setHighestScore})
         fetchPokemon()
     }, [])
 
+    function shuffleCards() {
+        setCards(prevCards => {
+        const shuffled = [...prevCards];
+        shuffled.sort(() => Math.random() - 0.5);
+        return shuffled;
+    });
+    }
+
     return (
         <div className='cards-container'>
             {cards.map(card => (
@@ -38,7 +46,8 @@ export default function Cards({ score, setScore, highestScore, setHighestScore})
                     highestScore={highestScore}
                     setHighestScore={setHighestScore}
                     clickedCards={clickedCards}
-                    setClickedCards={setClickedCards}/>
+                    setClickedCards={setClickedCards}
+                    shuffleCards={shuffleCards}/>
             ))}
         </div>
     )

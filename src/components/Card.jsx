@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Card({ card, score, setScore, highestScore, setHighestScore, clickedCards, setClickedCards }) {
+export default function Card({ card, score, setScore, highestScore, setHighestScore, clickedCards, setClickedCards, shuffleCards }) {
     function handleClick() {
         if (clickedCards.includes(card.id)) {
             setHighestScore(prev => Math.max(prev, score))
@@ -10,6 +10,8 @@ export default function Card({ card, score, setScore, highestScore, setHighestSc
             setScore(prev => prev + 1)
             setClickedCards(prev => [...prev, card.id])
         }
+
+        shuffleCards()
     }
 
     return (
